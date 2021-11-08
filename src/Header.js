@@ -12,7 +12,8 @@ function Header() {
     // (like appending but then removing.)
     const [{basket}] = useStateValue();
     
-    
+    console.log(basket);
+
     return (
         <nav className="header"> 
             {/* Logo on the left img*/}
@@ -64,7 +65,7 @@ function Header() {
                 
                 <ShoppingBasketIcon />
                 {/*number of items in basket*/}
-                <span className="header_optionLine2 header_basketCount">{basket.length}</span>
+                <span className="header_optionLine2 header_basketCount">{basket?.length}</span>
                 </div>
             </Link>
 
