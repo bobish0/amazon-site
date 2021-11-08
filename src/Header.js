@@ -3,8 +3,16 @@ import "./Header.css"
 import { Link } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import { useStateValue } from './StateProvider';
 
 function Header() {
+    
+    // first param is state of d.l. second is displatach, 
+    // dispatch(alt. param) pushes something in and out of the basket, through the data layer.
+    // (like appending but then removing.)
+    const [{basket}] = useStateValue();
+    
+    
     return (
         <nav className="header"> 
             {/* Logo on the left img*/}
@@ -56,7 +64,7 @@ function Header() {
                 
                 <ShoppingBasketIcon />
                 {/*number of items in basket*/}
-                <span className="header_optionLine2 header_basketCount">0</span>
+                <span className="header_optionLine2 header_basketCount">{basket.length}</span>
                 </div>
             </Link>
 
